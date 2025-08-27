@@ -45,5 +45,5 @@ while (( USER_GUESS != SECRET_NUMBER )); do
   done
   (( NUMBER_OF_GUESSES++ )) 
 done
-$PSQL "UPDATE users SET games_played = games_played + 1, best_game = LEAST(best_game, $NUMBER_OF_GUESSES) "
+$PSQL "UPDATE users SET games_played = games_played + 1, best_game = LEAST(best_game, $NUMBER_OF_GUESSES) WHERE user_name = $USERNAME"
 echo "You guessed it in $NUMBER_OF_GUESSES tries. The secret number was $SECRET_NUMBER. Nice job!"
