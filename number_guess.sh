@@ -8,3 +8,12 @@ echo $USERNAME
 
 SECRET_NUMBER=$(( RANDOM ))
 echo $SECRET_NUMBER
+
+#conect to database
+PSQL='psql --username=freecodecamp --dbname=number_guess -t --no-align -c'
+
+IS_NEW_USER=$($PSQL "SELECT user_name FROM users WHERE user_name = '$USERNAME'")
+
+if [[ -z $IS_NEW_USER ]]; then
+  echo "Welcome, $USERNAME! It looks like this is your first time here."
+fi
