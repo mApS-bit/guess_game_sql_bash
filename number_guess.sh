@@ -26,7 +26,7 @@ else
 echo "Guess the secret number between 1 and 1000:"
 read USER_GUESS
 while [[ ! $USER_GUESS =~ ^[0-9]+$ ]];do
-  echo "This is not an integer, guess again:"
+  echo "That is not an integer, guess again:"
   read USER_GUESS
 done
 NUMBER_OF_GUESSES=1
@@ -40,7 +40,7 @@ while (( USER_GUESS != SECRET_NUMBER )); do
     read USER_GUESS
   fi
   while [[ ! $USER_GUESS =~ ^[0-9]+$ ]];do
-    echo "This is not an integer, guess again:"
+    echo "That is not an integer, guess again:"
     read USER_GUESS
   done
   (( NUMBER_OF_GUESSES++ )) 
