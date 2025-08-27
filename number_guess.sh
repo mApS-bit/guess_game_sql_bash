@@ -24,6 +24,17 @@ else
   echo "Welcome back, $USERNAME! You have played $GAMES_PLAYED games, and your best game took $BEST_GAME guesses."
   fi
 echo "Guess the secret number between 1 and 1000:"
-NUMBER_OF_GUESSES=0
-
+read USER_GUESS
+NUMBER_OF_GUESSES=1
+echo "The secret number is $SECRET_NUMBER"
+while (( USER_GUESS != SECRET_NUMBER )); do
+  if (( USER_GUESS > SECRET_NUMBER )); then
+    echo "It's higher than that, guess again:"
+    read USER_GUESS
+  else
+    echo "It's lower than that, guess again:"
+    read USER_GUESS
+  fi
+  (( NUMBER_OF_GUESSES++ )) 
+done
 echo "You guessed it in $NUMBER_OF_GUESSES tries. The secret number was $SECRET_NUMBER. Nice job!"
