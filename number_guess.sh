@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #prompt for username
-echo " Enter your username: "
+echo "Enter your username:"
 read USERNAME
 #echo $USERNAME
 #generates a random number
@@ -22,8 +22,7 @@ else
   USER_DATA=$($PSQL "SELECT games_played, best_game FROM users WHERE user_name = '$USERNAME'")
   IFS="|" read GAMES_PLAYED BEST_GAME <<< "$USER_DATA"
   echo "Welcome back, $USERNAME! You have played $GAMES_PLAYED games, and your best game took $BEST_GAME guesses."
-fi
-#       Welcome back, $USERNAME! You have played $GAMES_PLAYED games, and your best game took $BEST_GAME guesses.
+  fi
 echo "Guess the secret number between 1 and 1000:"
 NUMBER_OF_GUESSES=0
 
